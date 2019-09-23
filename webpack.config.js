@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
+    devtool: 'eval-source-map',
     mode: 'development',
     module: {
-        // devtool: 'inline-source-map',
         rules: [
             {
                 test: /\.js$/,

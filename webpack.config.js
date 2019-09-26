@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = {
     devtool: 'eval-source-map',
     mode: 'development',
@@ -30,7 +31,8 @@ module.exports = {
             template: './src/index.html',
             filename: './index.html',
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin(),
     ],
     devServer: {
         port: 8000,

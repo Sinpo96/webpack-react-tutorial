@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-module.exports = {
+const speedMeasureWebpackPlugin = require('speed-measure-webpack-plugin');
+const smp = new speedMeasureWebpackPlugin({ outputFormat: 'humanVerbose' });
+
+const config = smp.wrap({
     devtool: 'eval-source-map',
     mode: 'development',
     output: {
@@ -39,4 +42,6 @@ module.exports = {
         port: 8000,
         hot: true,
     },
-}
+});
+
+module.exports = config;
